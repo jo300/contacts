@@ -1,0 +1,42 @@
+<div>
+
+
+
+    <h3>Contact Form</h3>
+    <button (click)="resetAll()">Reset All</button>
+
+    <form [formGroup]="contactForm" (ngSubmit)="add()">
+        <input type="text" name="first_name" placeholder="Your full name" formControlName="first_name" #name>
+        <br />
+
+        <input type="text" name="last_name" placeholder="last_name" formControlName="last_name">
+        <br />
+        <input type="text" name="phone" placeholder="phone" formControlName="phone">
+        <br />
+        <input type="submit" value="{{btnvalue}}">
+    </form>
+
+    <p style="color:red">{{info.msg}}</p>
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>phone</th>
+            <th>Update</th>
+            <th>delete</th>
+
+        </tr>
+        <tr *ngFor="let contact of contacts;let i=index">
+            <td>{{i}}</td>
+            <td>{{contact.first_name}}</td>
+            <td>{{contact.last_name}}</td>
+            <td>{{contact.phone}}</td>
+            <td><button (click)="updateData(i)">update</button></td>
+            <td><button (click)="deleteData(i)">delete</button></td>
+        </tr>
+
+
+    </table>
+
+</div>
